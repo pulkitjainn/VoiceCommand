@@ -175,35 +175,13 @@ public class MainActivity extends AppCompatActivity {
                   startActivity(r);
               }
               else{
-                  pname();
+                //  pname();
                   //tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
               }
           }
       }catch (Exception e){
          tts.speak(text1,TextToSpeech.QUEUE_FLUSH,null);
       }
-    }
-
-    public void pname() {
-        try {
-            String a = tv.getText().toString().toLowerCase();
-            Intent i  =new Intent(Intent.ACTION_MAIN,null);
-            i.addCategory(Intent.CATEGORY_LAUNCHER);
-            List<PackageInfo> name = this.getPackageManager().getInstalledPackages(0);
-            for(int j = 0 ; j<name.size();j++){
-                String act = name.get(j).packageName.toString();
-                if(act.contains(a)){
-                    Intent r = getPackageManager().getLaunchIntentForPackage(act);
-                    startActivity(r);
-                }
-                else {
-                    tts.speak(text1, TextToSpeech.QUEUE_FLUSH, null);
-                }
-            }
-        } catch (Exception e) {
-            //Toast.makeText(this, "dskgvnhslr;gger;lkgreg", Toast.LENGTH_SHORT).show();
-            tts.speak(text1, TextToSpeech.QUEUE_FLUSH, null);
-        }
     }
 
 }
